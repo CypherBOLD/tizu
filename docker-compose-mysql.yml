@@ -3,21 +3,19 @@ services:
   #dados para crição do container do mysql
   mysql_db:
     image: "mysql:8.0" #imagem vem do dockerhub, equivale ao from
-    container_name: mysqlserver #nomeando container
+    container_name: dbecommerce #nomeando container
     ports: # redirecionando as portas
       - "3306:3306" # primeira meu pc e seunda porta container
     environment: #variaveis de ambientes do mysql
       MYSQL_DATABASE: ecommerce
-      MYSQL_USER: root
-      MYSQL_PASSWORD: 98164
-      MYSQL_ROOT_PASSWORD: 98164
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: DigitalHouse2022
+      MYSQL_ROOT_PASSWORD: DigitalHouse2022
     volumes: #meu hd externo para o container
       - db_mysql:/var/lib/mysql
     networks: # uma rede entre os container
       - servers
   ##fim do mysql
-
-  #outro container --- backend
 
 volumes:
   db_mysql:
