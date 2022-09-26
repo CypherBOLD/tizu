@@ -1,5 +1,3 @@
-# alteracoes
-
 ## Terraform
 
 ### variables.tf - editado:
