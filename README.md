@@ -84,19 +84,19 @@ linha 25
 
 ### Inventory
 - Trocado o hostname (backend/frontend)
-[] alterar os ip das instancias
+- > alterar os ip das instancias
 
 ### playbook.yaml
 - instala todas as dependencias e sobe o container `mysql` no `backend`
-- alterar o diretorio padrao nas linhas : 70, 81 e 87
+- > alterar o diretorio padrao nas linhas : 70, 81 e 87
 
 #### backdocker.yaml
 - Sobe o container da aplicacao java no `backend`
-[] alterar o nome da pasta na linha 8, para a que esta sendo usada no `playbook` linha 70
+- >  alterar o nome da pasta na linha 8, para a que esta sendo usada no `playbook` linha 70
 ```       chdir: /home/ubuntu/tizu ```
 
 ### Portainer.yaml
 - Instala o portainer para voce gerenciar os containers da instancia pelo navegador
-- Para acessar, digitar `http:// ip da instancia :9443`
+- > Para acessar, digitar `http:// ip da instancia :9443`
 
 
