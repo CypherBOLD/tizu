@@ -94,7 +94,7 @@ vpc_security_group_ids = ["${aws_security_group.sg_acesso_ssh_local.id}","${aws_
 ```       chdir: /home/ubuntu/tizu ```
 
 ### Portainer.yaml
-- Instala o portainer para voce gerenciar os containers da instancia pelo navegador
+- Instala o Portainer em todas as instancias, para que possa gerenciar os containers pelo navegador (um docker-desktop para web)
 > Para acessar, digitar `http:// ip da instancia :9443`
 
 # Comandos Utilizados na maquina de gerenciamento
@@ -115,4 +115,9 @@ cd ansible/
 5 - subir o container do backend depois de o container do mysql estar online :
 ```  
 ansible-playbook backdocker.yaml -i inventory 
+```
+
+6 - Instalar o Portainer em todas as instancias
+```
+ansible-playbook portainer.yaml -i inventory 
 ```
