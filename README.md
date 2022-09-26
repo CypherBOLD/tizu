@@ -99,4 +99,22 @@ vpc_security_group_ids = ["${aws_security_group.sg_acesso_ssh_local.id}","${aws_
 - Instala o portainer para voce gerenciar os containers da instancia pelo navegador
 > Para acessar, digitar `http:// ip da instancia :9443`
 
+# Comandos Utilizados na maquina de gerenciamento
+- Copiar a pasta ansible na maquina de gerenciamento, (pode usar o vscode, conectado por ssh)
 
+- entrar na pasta ansible
+```
+cd ansible/
+```
+
+- instala as dependencias e e sobe o mysql
+```
+ ansible-playbook playbook.yaml -i inventory
+```
+
+- conectar o container do mysql no workbench pelo ip `ip_da_instancia:3306` , e criar as tabelas e adicionar os dados, com o script `create.sql` no repo `main`
+
+- subir o container do backend depois de o container do mysql estar online
+```  
+ansible-playbook backdocker.yaml -i inventory 
+```
