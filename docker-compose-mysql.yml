@@ -3,7 +3,7 @@ services:
   #dados para crição do container do mysql
   mysql_db:
     image: "mysql:8.0" #imagem vem do dockerhub, equivale ao from
-    container_name: dbecommerce #nomeando container
+    container_name: mysqlserver #nomeando container
     ports: # redirecionando as portas
       - "3306:3306" # primeira meu pc e seunda porta container
     environment: #variaveis de ambientes do mysql
