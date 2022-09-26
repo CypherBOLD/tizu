@@ -73,7 +73,7 @@ resource "aws_security_group" "sg_acesso_portainer_publico" {
 ```
 
 ### ec2.tf - editado:
-linha 25
+editado a `linha 25`, para adicionar as regras criadas no arquivo `securitygroup.tf`
 ```  
 vpc_security_group_ids = ["${aws_security_group.sg_acesso_ssh_local.id}","${aws_security_group.sg_acesso_web_publico.id}","${aws_security_group.sg_acesso_tomcat_publico.id}","${aws_security_group.sg_acesso_mysql_publico.id}","${aws_security_group.sg_acesso_portainer_publico.id}" ]
 ```
