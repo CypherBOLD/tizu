@@ -100,21 +100,21 @@ vpc_security_group_ids = ["${aws_security_group.sg_acesso_ssh_local.id}","${aws_
 > Para acessar, digitar `http:// ip da instancia :9443`
 
 # Comandos Utilizados na maquina de gerenciamento
-- Copiar a pasta ansible na maquina de gerenciamento, (pode usar o vscode, conectado por ssh)
+1 - Copiar a pasta ansible na maquina de gerenciamento, (pode usar o vscode, conectado por ssh)
 
-- entrar na pasta ansible
+2 - entrar na pasta ansible
 ```
 cd ansible/
 ```
 
-- instala as dependencias e e sobe o mysql
+3 - instala as dependencias e e subir o mysql
 ```
  ansible-playbook playbook.yaml -i inventory
 ```
 
-- conectar o container do mysql no workbench pelo ip `ip_da_instancia:3306` , e criar as tabelas e adicionar os dados, com o script `create.sql` no repo `main`
+4 - conectar o container do mysql no workbench pelo ip `ip_da_instancia:3306` , e criar as tabelas e adicionar os dados, com o script `create.sql` na branch `main`
 
-- subir o container do backend depois de o container do mysql estar online
+5 - subir o container do backend depois de o container do mysql estar online :
 ```  
 ansible-playbook backdocker.yaml -i inventory 
 ```
