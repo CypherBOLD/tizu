@@ -74,9 +74,8 @@ resource "aws_security_group" "sg_acesso_portainer_publico" {
 
 ### ec2.tf - editado:
 linha 25
-```
-  vpc_security_group_ids = ["${aws_security_group.sg_acesso_ssh_local.id}","${aws_security_group.sg_acesso_web_publico.id}","${aws_security_group.sg_acesso_tomcat_publico.id}","${aws_security_group.sg_acesso_mysql_publico.id}","${aws_security_group.sg_acesso_portainer_publico.id}" ]
-```
+>  vpc_security_group_ids = ["${aws_security_group.sg_acesso_ssh_local.id}","${aws_security_group.sg_acesso_web_publico.id}","${aws_security_group.sg_acesso_tomcat_publico.id}","${aws_security_group.sg_acesso_mysql_publico.id}","${aws_security_group.sg_acesso_portainer_publico.id}" ]
+
 
 ## Ansible
 - destrinchado o playbook em mais arquivos,
