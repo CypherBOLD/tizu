@@ -1,5 +1,5 @@
 variable "usuario" {
-    default = "tizu"
+    default = "confucioDevOps"
 }
 variable "regiao" {
      default = "us-west-1"

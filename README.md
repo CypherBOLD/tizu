@@ -3,7 +3,7 @@
 ### variables.tf - editado:
 ```
  variable "usuario" {
-     default = "tizu"
+     default = "confucioDevOps"
 }
 ```
 
@@ -97,7 +97,52 @@ vpc_security_group_ids = ["${aws_security_group.sg_acesso_ssh_local.id}","${aws_
 - Instala o Portainer em todas as instancias, para que possa gerenciar os containers pelo navegador (um docker-desktop para web)
 > Para acessar, digitar `http:// ip da instancia :9443`
 
-# Comandos Utilizados na maquina de gerenciamento
+# Comandos do Terraform, [utilizados na sua Maquina]
+
+1 - Iniciar o terraform na pasta
+```
+terraform init
+```
+
+2 - Gerar a chave ssh
+```
+$ ssh-keygen
+```
+```
+Generating public/private rsa key pair.
+Enter file in which to save the key (~/.ssh/id_rsa): terraform-aws
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in terraform-aws
+Your public key has been saved in terraform-aws.pub
+The key fingerprint is:
+SHA256: ...
+The key's randomart image is:
++---[RSA 3072]----+
+|    .     ...+BB*|
+|   o .     . oEoB|
+|  o .     . ...B=|
+|   . .   + o .+ +|
+|    o . S B +.. o|
+|   . o = o o = ..|
+|    = + +   o o  |
+|   . = .     .   |
+|    .            |
++----[SHA256]-----+
+```
+
+3 - Criar um plano de execucao, visualizar oque sera criado, ou modificado caso haja algo em execucao
+```
+ terraform plan
+```
+
+4 - Aplicar as modificacoes, no servico cloud selecionado [AWS]
+```
+terraform apply
+```
+ 
+
+# Comandos do Ansible, [tilizados na maquina de gerenciamento]
 1 - Copiar a pasta ansible na maquina de gerenciamento, (pode usar o vscode, conectado por ssh)
 
 2 - entrar na pasta ansible
