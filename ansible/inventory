@@ -1,12 +1,12 @@
 [docker]
-docker0 ansible_host=10.0.1.X new_hostname=frontend
-docker1 ansible_host=10.0.1.Y new_hostname=backend
+frontend ansible_host=10.0.1.65 new_hostname=frontend
+backend ansible_host=10.0.1.203 new_hostname=backend
 
-[frontend]
-docker0 ansible_host=10.0.1.X
+# [frontend]
+# docker0 ansible_host=10.0.1.90
 
-[backend]
-docker1 ansible_host=10.0.1.Y
+# [backend]
+# docker1 ansible_host=10.0.1.212
 
 
 [all:vars]
@@ -19,15 +19,3 @@ ansible_ssh_private_key_file=/home/ubuntu/.ssh/terraform-aws
 #ansible-playbook playbook.yaml -i inventory
 #ansible-playbook mysqlbook.yaml -i inventory
 #ansible-playbook backendbook.yaml -i inventory
-
-# ec2_docker_ip_privado = [
-#   "10.0.1.65",
-#   "10.0.1.203",
-# ]
-# ec2_docker_ip_publico = [
-#   "13.52.212.41",
-#   "54.219.249.134",
-# ]
-# ec2_gerenciamento_ip_publico = [
-#   "3.101.59.212",
-# ]

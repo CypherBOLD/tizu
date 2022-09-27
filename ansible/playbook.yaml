@@ -4,7 +4,7 @@
   - name: alterando nome dos hosts
     hostname:
       name: "{{ new_hostname }}"
-
+  # 1
   - name: instalar dependencias do docker e java para compilar
     apt: # apt-get install apt-transport-https 
       name: "{{item}}"
@@ -18,17 +18,17 @@
       - software-properties-common
       - openjdk-17-jdk
       - maven  
-
+  # 2
   - name: adicionar chave GPG
     apt_key:
       url: https://download.docker.com/linux/ubuntu/gpg
       state: present
-
+  # 3
   - name: adicionar repositório d0 instalador do docker
     apt_repository:
       repo: deb https://download.docker.com/linux/ubuntu bionic stable
       state: present
-
+  # 4
   - name: instala docker
     apt:
       name: "{{item}}"
@@ -39,7 +39,7 @@
       - docker-ce-cli
       - containerd.io
       - docker-compose
-
+  # 5
   - name: instalar python e pip ansible precisa para poder iniciar o Docker, executar
     apt:
       name: "{{item}}"
@@ -48,20 +48,29 @@
     loop:
       - python3
       - pip
-
+  # 6
   - name: Instalar recurso docker que o ansible precisa
     pip:
       name: docker
+  # Fim
 
   handlers:
+  # 1
     - name: reiniciar docker
       service: 
         name: docker 
         state: restarted
+  # 2
+    - name: remover pasta tizu da home
+      become: true
+      shell:
+        cmd: rm -rf /home/ubuntu/tizu
+  # Fim
 
 - hosts: backend
   become: yes
-  tasks:        
+  tasks:
+  # 1
   - name: Clonando o Repositorio do Projeto Ecommerce em JAVA
     ansible.builtin.git:
       # o repositório que vamos clonar
@@ -74,14 +83,15 @@
       update: yes
       # force pq eu quero, baixa e pronto. eu mandei.
       force: yes
-
+  # 2
   - name: mvn install
     shell:
       cmd: "sudo mvn install"
       chdir: /home/ubuntu/tizu
-
+  # 3
   - name: Rodando docker-compose mysql
     become: true
     shell:
       cmd: "docker-compose -f docker-compose-mysql.yml up -d"
       chdir: /home/ubuntu/tizu
+  # Fim
