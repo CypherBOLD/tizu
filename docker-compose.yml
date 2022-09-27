@@ -9,7 +9,7 @@ services:
     networks:
       - servers
     environment:
-      SPRING_PROFILES_ACTIVE: aws
+      SPRING_PROFILES_ACTIVE: docker
 
 networks:
   servers:
