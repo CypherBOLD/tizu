@@ -1,12 +1,12 @@
 [docker]
-docker1 ansible_host=10.0.1.90 new_hostname=docker1
-docker2 ansible_host=10.0.1.212 new_hostname=docker2
+docker0 ansible_host=10.0.1.90 new_hostname=frontend
+docker1 ansible_host=10.0.1.212 new_hostname=backend
 
-[frontend]
-docker1 ansible_host=10.0.1.90
+# [frontend]
+# docker0 ansible_host=10.0.1.90
 
-[backend]
-docker2 ansible_host=10.0.1.212
+# [backend]
+# docker1 ansible_host=10.0.1.212
 
 
 [all:vars]

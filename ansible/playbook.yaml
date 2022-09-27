@@ -49,7 +49,7 @@
       - python3
       - pip
 
-  - name: Instalar recurso docker ansible precisa
+  - name: Instalar recurso docker que o ansible precisa
     pip:
       name: docker
 
@@ -62,7 +62,7 @@
 - hosts: backend
   become: yes
   tasks:        
-  - name: clone pasta target
+  - name: Clonando o Repositorio do Projeto Ecommerce em JAVA
     ansible.builtin.git:
       # o repositório que vamos clonar
       repo: https://github.com/cypherbold/tizu
@@ -80,7 +80,7 @@
       cmd: "sudo mvn install"
       chdir: /home/ubuntu/tizu
 
-  - name: Subir docker-compose mysql
+  - name: Rodando docker-compose mysql
     become: true
     shell:
       cmd: "docker-compose -f docker-compose-mysql.yml up -d"
